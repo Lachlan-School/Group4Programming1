@@ -17,5 +17,12 @@ Gaven Leef
 
 ## Our Documentation
 
+Mock Up:
+<img width="1926" height="1080" alt="1" src="https://github.com/user-attachments/assets/93c87909-e0d3-4de9-b5fe-1c2f7df8b486" />
+<img width="1926" height="1080" alt="2" src="https://github.com/user-attachments/assets/8f45e6d7-2963-48b1-8cff-98630dc69d35" />
+<img width="1926" height="1080" alt="3" src="https://github.com/user-attachments/assets/a2b1cebe-f15d-4d9c-9e69-23df91cbf539" />
+<img width="1926" height="1080" alt="4" src="https://github.com/user-attachments/assets/9a649f5d-a607-424c-94d3-ce0b4ff6c4d9" />
+
+
 
 Logic Diagram: <img width="701" height="1087" alt="LogicDiagram" src="https://github.com/user-attachments/assets/a5c6e64d-482b-4a4d-b35c-a8041ea8aace" />
