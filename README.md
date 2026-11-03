@@ -12,7 +12,9 @@ The smallest working version would be a character walking along a flat 2-D plane
 A question we have decided to ask is how many monster types do we incorporate, and which monsters should we do? Should we do traditional fantasy monsters or original monsters?  The primary thing we need to research is how to get a battle screen to overlay the over world screen while pausing the over world screen.
 ## Our Team
 Lachlan Wayment
+
 James Jia
+
 Gaven Leef
 
 ## Our Documentation
