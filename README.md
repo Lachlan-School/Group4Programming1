@@ -27,6 +27,7 @@ Mock Up:
 <img width="1926" height="1080" alt="3" src="https://github.com/user-attachments/assets/a2b1cebe-f15d-4d9c-9e69-23df91cbf539" />
 <img width="1926" height="1080" alt="4" src="https://github.com/user-attachments/assets/9a649f5d-a607-424c-94d3-ce0b4ff6c4d9" />
 
+Class Diagram:<img width="522" height="452" alt="ClassDiagram" src="https://github.com/user-attachments/assets/c3bea904-f43d-40fe-bdee-7febad077848" />
 
 
 Logic Diagram: <img width="701" height="1087" alt="LogicDiagram" src="https://github.com/user-attachments/assets/a5c6e64d-482b-4a4d-b35c-a8041ea8aace" />
