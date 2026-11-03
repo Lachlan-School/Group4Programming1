@@ -31,3 +31,6 @@ Class Diagram:<img width="522" height="452" alt="ClassDiagram" src="https://gith
 
 
 Logic Diagram: <img width="701" height="1087" alt="LogicDiagram" src="https://github.com/user-attachments/assets/a5c6e64d-482b-4a4d-b35c-a8041ea8aace" />
+
+
+Class Schedule: <img width="771" height="827" alt="image" src="https://github.com/user-attachments/assets/3994b7b3-a6db-47f0-b1e8-43ba5cbb4672" />
