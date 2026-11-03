@@ -8,11 +8,11 @@ class Player {
 Player() {
   x=50;
   y=50;
-  p1=loadImage("");
+  p1=loadImage("CharacterS01");
 }
 //Member Method
 void display() {
 //todo replace rect with image.
   fill(1, 20, 1);
-  rect(x, y, 50, 50);
+  image(p1, x, y);
 }
