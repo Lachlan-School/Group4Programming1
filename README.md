@@ -14,3 +14,8 @@ A question we have decided to ask is how many monster types do we incorporate, a
 Lachlan Wayment
 James Jia
 Gaven Leef
+
+## Our Documentation
+
+
+Logic Diagram: <img width="701" height="1087" alt="LogicDiagram" src="https://github.com/user-attachments/assets/a5c6e64d-482b-4a4d-b35c-a8041ea8aace" />
