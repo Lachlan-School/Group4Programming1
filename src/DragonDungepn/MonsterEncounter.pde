@@ -20,8 +20,8 @@ creatureType = BlueSlime
 } else {
 creatureType = Gnome
 }
-PImage = creatureType;
+display = loadImage(creatureType);
 }
 void display() {
-
+image(display, 100, 50);
 }
