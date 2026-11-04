@@ -4,6 +4,7 @@ class Encounter() {
 String creatureType;
 int health;
 float creatureIndex;
+display PImage;
 }
 Encounter(){
 health = 100;
@@ -19,4 +20,8 @@ creatureType = BlueSlime
 } else {
 creatureType = Gnome
 }
+PImage = creatureType;
+}
+void display() {
+
 }
