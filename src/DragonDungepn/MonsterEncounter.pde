@@ -9,7 +9,7 @@ Encounter(){
 health = 100;
 creatureIndex = random(1,100);
 if(creatureIndex <= 5) {
-creatureType = MysteriousFey;
+creatureType = MysteriousFae;
 } else if (creatureIndex <= 20) {
 creatureType = DemonicSprite;
 } else if (creatureIndex <= 50) {
