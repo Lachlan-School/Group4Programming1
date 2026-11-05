@@ -29,6 +29,4 @@ up = false;}
   
 }
 }
-void display() {
-  
-}
+
