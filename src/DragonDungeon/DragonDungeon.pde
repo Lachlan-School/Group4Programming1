@@ -7,8 +7,7 @@ Character Player;
 void setup() {
   Player = new Character();
 //for(int i = 0; i<tiles.length; i++) {
-//tiles[i] = new tile
-}
+//tiles[i] = new Overworld}
   size(1024, 736);
   background(#34CE3D);
   x = width / 2;
