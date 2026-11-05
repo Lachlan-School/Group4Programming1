@@ -1,15 +1,16 @@
-//Gaven Leef
+//Gaven leef
 
-class Player {
+
+class Character {
   //Member Variables
   int x, y;
   PImage p1 ;
 
 //Constructor
-Player() {
+Character() {
   x=50;
   y=50;
-  p1=loadImage("CharacterS01");
+  p1=loadImage("CharacterS01.png");
 }
 //Member Method
 void display() {
@@ -21,4 +22,7 @@ void display() {
   if(keyPressed==true);
   
 }
+}
+void display() {
+  
 }
