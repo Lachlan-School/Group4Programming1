@@ -3,9 +3,12 @@ float x, y;
 float speed = 5;
 boolean up, down, left, right;
 Character Player;
-
+//Overworld[] tiles = new Overworld[736];
 void setup() {
   Player = new Character();
+//for(int i = 0; i<tiles.length; i++) {
+//tiles[i] = new tile
+}
   size(1024, 736);
   background(#34CE3D);
   x = width / 2;
