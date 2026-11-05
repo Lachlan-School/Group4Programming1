@@ -1,13 +1,15 @@
 //Lachlan Wayment
+
 class Overworld {
   //Member Variables
-  int x, y;
+  int x, y, tileID;
   PImage p1 ;
-
+  string tileType;
   //Constructor
-  Overworld() {
-    x=50;
-    y=50;
+  Overworld(int x, int y, int tileID) {
+    this.x = x;
+    this.y = y;
+    tileType = tileID
     p1=loadImage("Brick01.png");
   }
   //Member Method
