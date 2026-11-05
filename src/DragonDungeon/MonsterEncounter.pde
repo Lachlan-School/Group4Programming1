@@ -7,7 +7,7 @@ class Encounter {
   PImage  creatureImage;
 
 
-  void Encounter() {
+   Encounter() {
     health = 100;
     creatureIndex = random(1, 100);
     if (creatureIndex <= 5) {
@@ -21,7 +21,7 @@ class Encounter {
     } else {
       creatureType = "Gnome";
     }
-    creatureImage = loadImage(creatureType);
+    creatureImage = loadImage(creatureType + ".png");
   }
 
 void display() {
