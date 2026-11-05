@@ -2,23 +2,25 @@
 float x, y;
 float speed = 5;
 boolean up, down, left, right;
+Character Player;
 
 void setup() {
-size(1024, 736);
-background(#34CE3D);
- x = width / 2;
+  Player = new Character();
+  size(1024, 736);
+  background(#34CE3D);
+  x = width / 2;
   y = height / 2;
+  
 }
 
 void draw() {
- background(#34CE3D);
-  
+  background(#34CE3D);
+Player.display();
   // Update position based on boolean flags
   if (up)    y -= speed;
   if (down)  y += speed;
   if (left)  x -= speed;
   if (right) x += speed;
-  
 }
 
 
