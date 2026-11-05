@@ -4,7 +4,7 @@ class MonsterEncounter {
   String creatureType;
   int health, expValue;
   float creatureIndex;
-  PImage  creatureImage;
+  PImage  creatureImage, attackButton, itemButton, runButton;
 
 
    MonsterEncounter() {
@@ -32,6 +32,7 @@ class MonsterEncounter {
       expValue = 25;
     }
     creatureImage = loadImage(creatureType + ".png");
+    attackButton = loadImage(
   }
 
 void display() {
