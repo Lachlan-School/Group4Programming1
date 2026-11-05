@@ -32,15 +32,17 @@ class MonsterEncounter {
       expValue = 25;
     }
     creatureImage = loadImage(creatureType + ".png");
-    attackButton = loadImage(
+    attackButton = loadImage("attackButton.png");
+    itemButton = loadImage("itemButton.png"); 
+    
   }
 
 void display() {
   image(creatureImage, 100, 50);
 }
 void battle() {
-rect(320, 320, 64, 32);
-rect(352, 320, 64, 32);
+image(attackButton, 320, 320);
+image(itemButton, 384, 320);
 rect(320, 416, 64, 32);
 rect(352, 416, 64, 32);
 
