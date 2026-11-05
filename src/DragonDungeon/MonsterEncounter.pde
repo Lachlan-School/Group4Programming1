@@ -37,4 +37,11 @@ class MonsterEncounter {
 void display() {
   image(creatureImage, 100, 50);
 }
+void battle() {
+rect(320, 320, 64, 32);
+rect(352, 320, 64, 32);
+rect(320, 416, 64, 32);
+rect(352, 416, 64, 32);
+
+}
 }
