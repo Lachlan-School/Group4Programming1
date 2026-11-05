@@ -4,7 +4,8 @@ class Overworld {
   //Member Variables
   int x, y, tileID;
   PImage p1 ;
-  string tileType;
+  string[] tileType = new string[20];
+  
   //Constructor
   Overworld(int x, int y, int tileID) {
     this.x = x;
