@@ -12,7 +12,6 @@ Player() {
 }
 //Member Method
 void display() {
-//todo replace rect with image.
   fill(1, 20, 1);
   image(p1, x, y);
 }
