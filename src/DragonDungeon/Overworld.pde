@@ -8,7 +8,7 @@ class Overworld {
   Overworld() {
     x=50;
     y=50;
-    p1=loadImage("Brick01");
+    p1=loadImage("Brick01.png");
   }
   //Member Method
   void display() {
