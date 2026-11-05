@@ -15,12 +15,11 @@ void setup() {
 
 void draw() {
   background(#34CE3D);
-Player.display();
+  keyPressed();
+  
+Player.display(up,down,left,right);
   // Update position based on boolean flags
-  if (up)    y -= speed;
-  if (down)  y += speed;
-  if (left)  x -= speed;
-  if (right) x += speed;
+  
 }
 
 
