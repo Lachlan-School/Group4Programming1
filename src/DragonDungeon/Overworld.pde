@@ -10,8 +10,7 @@ class Overworld {
   Overworld(int x, int y, int tileID) {
     this.x = x;
     this.y = y;
-    tileType = tileID
-    p1=loadImage("Brick01.png");
+    p1=loadImage(tileType[tileID] + ".png");
   }
   //Member Method
   void display() {
