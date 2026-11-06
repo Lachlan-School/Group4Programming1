@@ -34,7 +34,7 @@ class MonsterEncounter {
     creatureImage = loadImage(creatureType + ".png");
     attackButton = loadImage("attackButton.png");
     itemButton = loadImage("itemButton.png"); 
-    
+    runButton = loadImage("runButton.png");
   }
 
 void display() {
@@ -43,8 +43,8 @@ void display() {
 void battle() {
 image(attackButton, 320, 320);
 image(itemButton, 384, 320);
-rect(320, 416, 64, 32);
-rect(352, 416, 64, 32);
+rect(336, 416, 64, 32);
+//rect(352, 416, 64, 32);
 
 }
 }
