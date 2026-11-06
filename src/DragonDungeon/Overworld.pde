@@ -10,6 +10,10 @@ class Overworld {
   tileType[2] = "Trees01"
   tileType[3] = "Trees02"
   tileType[4] = "Mountains01"
+//tileType[5] = "Mountains02"
+  tileType[6] = "Brick01"
+//tileType[7] = "Bricks02"
+  tileType[8] = "Water01"
   //Constructor
   Overworld(int x, int y, int tileID) {
     this.x = x;
