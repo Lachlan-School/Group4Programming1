@@ -35,9 +35,10 @@ tiles[i] = new Overworld(tileX, tileY, 0);
 void draw() {
   background(#34CE3D);
   keyPressed();
-  
+for(int i = 0; i<tiles.length; i++) {
+tiles[i].display
+}
 Player.display(up,down,left,right);
-  // Update position based on boolean flags
   
 }
 
