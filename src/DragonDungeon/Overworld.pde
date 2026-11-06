@@ -6,6 +6,10 @@ class Overworld {
   PImage tileImage;
   string[] tileType = new string[30];
   tileType[0] = "Grass01"
+  tileType[1] = "Grass02"
+  tileType[2] = "Trees01"
+  tileType[3] = "Trees02"
+  tileType[4] = "Mountains01"
   //Constructor
   Overworld(int x, int y, int tileID) {
     this.x = x;
