@@ -19,8 +19,8 @@ Character() {
   exp = 0;
   damage = 5;
   defense = 0;
-  weaponEquipped = rustedDagger;
-  armorEquipped = none;
+  weaponEquipped = "rustedDagger";
+  armorEquipped = "none";
 
   p1=loadImage("CharacterS01.png");
 }
