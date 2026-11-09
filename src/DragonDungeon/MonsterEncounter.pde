@@ -23,11 +23,11 @@ class MonsterEncounter {
       health = 125;
       expValue = 150;
     } else if (creatureIndex <= 70) {
-      creatureType = "BlueSlime";
+      creatureType = "RedSlime";
       health = 50;
       expValue = 50;
     } else {
-      creatureType = "Gnome";
+      creatureType = "BlueSlime";
       health = 25;
       expValue = 25;
     }
@@ -43,7 +43,7 @@ void display() {
 void battle() {
 image(attackButton, 320, 320);
 image(itemButton, 384, 320);
-rect(336, 416, 64, 32);
+image(runButton, 352, 416);
 //rect(352, 416, 64, 32);
 
 }
