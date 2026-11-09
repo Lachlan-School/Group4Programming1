@@ -3,13 +3,25 @@
 
 class Character {
   //Member Variables
-  int x, y;
+  int x, y, str, agi, hp, hpMax, damage, defense, level, exp;
+  String weaponEquipped, armorEquipped;
   PImage p1 ;
 
 //Constructor
 Character() {
   x=512;
   y=368;
+  hp = 100;
+  hpMax = 100;
+  str = 5;
+  agi = 5;
+  level = 1;
+  exp = 0;
+  damage = 5;
+  defense = 0;
+  weaponEquipped = rustedDagger;
+  armorEquipped = none;
+
   p1=loadImage("CharacterS01.png");
 }
 //Member Method
