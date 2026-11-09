@@ -1,13 +1,13 @@
 //Gaven Leef and Lachlan Wayment
 //Set up all of the variables
 float x, y;
-int tileX, tileY;
+int tileX, tileY, currentTile;
 boolean up, down, left, right, tile>32;
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 Overworld[] tiles = new Overworld[736];
 void setup() {
-//Set up the window size and the background
+//Set up the window size, background and other universal variables
 size(1024, 736);
   background(#34CE3D);
 
@@ -28,6 +28,7 @@ tileY = int(i/32);
 tileY *= 22
 tiles[i] = new Overworld(tileX, tileY, 0);
 }  
+
   x = width / 2;
   y = height / 2;
 }
