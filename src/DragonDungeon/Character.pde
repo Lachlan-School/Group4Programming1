@@ -14,12 +14,19 @@ Character() {
 }
 //Member Method
 void display(boolean up, boolean down, boolean left, boolean right) {
-  if (up == true)  {  y = y-32;
-up = false;}
-  if (down == true)  {y = y+32; }
-  down = false;}
-  if (left == true)  {x = x-32;}
-  if (right == true)  {x = x+32;}
+  if (up == true)  {
+y = y-32;
+up = false;
+} else if (down == true)  {
+y = y+32; 
+down = false;
+} else if (left == true)  {
+x = x-32;
+left = false;
+} else if (right == true)  {
+x = x+32;
+right = false;
+}
   fill(1, 20, 1);
   image(p1, x, y);
 }
