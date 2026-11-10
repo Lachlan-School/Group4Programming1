@@ -36,11 +36,14 @@ void setup() {
 
 void draw() {
   background(#34CE3D);
-  //keyPressed();
   for (int i = 0; i<tiles.length; i++) {
     tiles[i].display();
   }
   Player.display(up, down, left, right);
+  up = false;
+  down = false;
+  left = false;
+  right = false;
 }
 
 
