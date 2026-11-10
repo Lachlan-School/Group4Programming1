@@ -1,34 +1,62 @@
-//Lachlan Wayment
+//Gaven Leef and Lachlan Wayment
+//Set up all of the variables
+float x, y;
+int tileX, tileY, currentTile;
+boolean up, down, left, right, inBattle;
+//Call the classes, including Overworld as an array to spawn all 736 tiles.
+Character Player;
+MonsterEncounter Monster;
+Overworld[] tiles = new Overworld[736];
+void setup() {
+  //Set up the window size, background and other universal variables
+  size(1024, 736);
+  background(#34CE3D);
+  inBattle = false;
+  //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
+  Player = new Character();
+  Monster = new MonsterEncounter();
+  for (int i = 0; i<tiles.length; i++) {
 
-class Overworld {
-  //Member Variables
-  int x, y, tileID;
-  PImage tileImage;
-  String[] tileType = new String[30];
-  public void loadTiles() {
-    tileType[0] = "Grass01";
-    tileType[1] = "Grass02";
-    tileType[2] = "Trees01";
-    tileType[3] = "Trees02";
-    tileType[4] = "Mountains01";
-    //tileType[5] = "Mountains02";
-    tileType[6] = "Brick01";
-    //tileType[7] = "Brick02";
-    tileType[8] = "Water01";
-    //tileType[9] = "Water02";
-    tileType[10] = "BeachS01";
+    tileX = i;
+
+    for (int j = 0; j< tileX; j++) {
+      if (tileX >=32) {
+        tileX = tileX-32;
+      }
+    }
+    tileX *= 32;
+    tileY = i/32;
+    tileY = int(tileY);
+    tileY *= 32;
+    tiles[i] = new Overworld(tileX, tileY, i);
+    
   }
-  //Constructor
-  Overworld(int x, int y, int tileID) {
-    this.x = x;
-    this.y = y;
-    this.tileID = tileID;
-    //tileImage=loadImage(tileType[tileID] + ".png");
-    tileImage=loadImage("Grass01" + ".png");
+}
+
+
+
+
+void draw() {
+  background(#34CE3D);
+  for (int i = 0; i<tiles.length; i++) {
+    tiles[i].display();
   }
-  //Member Method
-  void display() {
-    image(tileImage, x, y);
-    text(tileID, x+10, y+10);
+  if (inBattle == false) {
+  Player.display(up, down, left, right);
+  } else {
+    Monster.display();
   }
+  up = false;
+  down = false;
+  left = false;
+  right = false;
+}
+
+
+
+void keyPressed() {
+  if (key == 'w' || key == 'W') up = true;
+  if (key == 's' || key == 'S') down = true;
+  if (key == 'a' || key == 'A') left = true;
+  if (key == 'd' || key == 'D') right = true;
 }
