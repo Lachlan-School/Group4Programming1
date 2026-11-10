@@ -7,8 +7,8 @@ class MonsterEncounter {
   PImage  creatureImage, attackButton, itemButton, runButton;
 
 
-   MonsterEncounter() {
-    
+  MonsterEncounter() {
+
     creatureIndex = random(1, 100);
     if (creatureIndex <= 5) {
       creatureType = "MysteriousFae";
@@ -33,18 +33,18 @@ class MonsterEncounter {
     }
     creatureImage = loadImage(creatureType + ".png");
     attackButton = loadImage("attackButton.png");
-    itemButton = loadImage("itemButton.png"); 
+    itemButton = loadImage("itemButton.png");
     runButton = loadImage("runButton.png");
   }
 
-void display() {
-  image(creatureImage, 100, 50);
+  void display() {
+    image(creatureImage, 100, 50);
+  }
+  void battle() {
+    image(attackButton, 320, 320);
+    image(itemButton, 384, 320);
+    image(runButton, 352, 416);
+    //rect(352, 416, 64, 32);
+  }
 }
-void battle() {
-image(attackButton, 320, 320);
-image(itemButton, 384, 320);
-image(runButton, 352, 416);
-//rect(352, 416, 64, 32);
 
-}
-}
