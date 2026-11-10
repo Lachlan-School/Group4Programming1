@@ -15,27 +15,28 @@ void setup() {
   Player = new Character();
   for (int i = 0; i<tiles.length; i++) {
     tileLess32 = true;
-      tileX = i;
-    for (tileLess32 == true) {
-      if (tileX >32) {
-        tileX = tileX-32;
-      } else {
-        tileLess32 = false;
-      }
-    }
-    tileX *=
-      tileY = int(i/32);
-    tileY *= 22;
-      tiles[i] = new Overworld(tileX, tileY, 0);
-  }
+    tileX = i;
 
-  x = width / 2;
-  y = height / 2;
+       for (int j = 32; j< tileX; j++)  {
+    if (tileX >32) {
+      tileX = tileX-32;
+    } else {
+      tileLess32 = false;
+    }
+       }
+    tileX *= 32;
+    tileY = int(i/32);
+    tileY *= 22;
+    tiles[i] = new Overworld(tileX, tileY, 0);
+  }
 }
+
+
+
 
 void draw() {
   background(#34CE3D);
-  keyPressed();
+  //keyPressed();
   for (int i = 0; i<tiles.length; i++) {
     tiles[i].display();
   }
