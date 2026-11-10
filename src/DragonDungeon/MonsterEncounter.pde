@@ -9,7 +9,15 @@ class MonsterEncounter {
 
   MonsterEncounter() {
 
-    creatureIndex = random(1, 100);
+   
+
+    attackButton = loadImage("attackButton.png");
+    itemButton = loadImage("itemButton.png");
+    runButton = loadImage("runButton.png");
+  }
+
+  void display()  {
+  creatureIndex = random(1, 100);
     if (creatureIndex <= 5) {
       creatureType = "MysteriousFae";
       health = 200;
@@ -31,20 +39,15 @@ class MonsterEncounter {
       health = 25;
       expValue = 25;
     }
-    creatureImage = loadImage(creatureType + ".png");
-    attackButton = loadImage("attackButton.png");
-    itemButton = loadImage("itemButton.png");
-    runButton = loadImage("runButton.png");
-  }
-
-  void display() {
-    image(creatureImage, 100, 50);
+       // creatureImage = loadImage(creatureType + ".png");
+    //image(creatureImage, 100, 50);
+    battle();
   }
   void battle() {
+    rect(128, 128, 512, 512);
     image(attackButton, 320, 320);
     image(itemButton, 384, 320);
     image(runButton, 352, 416);
-    //rect(352, 416, 64, 32);
+    
   }
 }
-
