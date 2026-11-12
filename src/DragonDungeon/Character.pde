@@ -7,9 +7,8 @@ int currentLevel = 1;
 class Character {
   //Member Variables
   float MonsterEncounter;
-  int x, y, str, agi, hp, hpMax, damage, defense, level, exp;
-  String weaponEquipped, armorEquipped;
-  PImage p1 ;
+  int x, y;
+  PImage p1;
 
   //Constructor
   Character() {
@@ -50,16 +49,14 @@ class Character {
     fill(1, 20, 1);
     image(p1, x, y);
   }
- void monsterSpawn() {
+  void monsterSpawn() {
     MonsterEncounter = random(1, 100);
     if (MonsterEncounter <= 5) {
       inBattle = true;
+      decideMonster = true;
     }
   }
   void keyPressed() {
     if (keyPressed==true);
   }
 }
-
- 
-
