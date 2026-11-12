@@ -3,7 +3,7 @@
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
 int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp;
-boolean up, down, left, right, inBattle, decideMonster;
+boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN;
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 MonsterEncounter Monster;
@@ -45,6 +45,7 @@ void draw() {
     Player.display(up, down, left, right);
   } else {
     Monster.display();
+    Monster.mouseOver(mouseX, mouseY);
   }
   up = false;
   down = false;
@@ -53,6 +54,15 @@ void draw() {
 }
 
 
+void mouseReleased() {
+if (mouseOverATK == true) {
+  Monster.attack();
+} else if (mouseOverITEM == true) {
+  Monster.item();
+} else if (mouseOverRUN == true) {
+  Monster.run();
+}
+}
 
 void keyPressed() {
   if (key == 'w' || key == 'W') up = true;
