@@ -33,30 +33,33 @@ class Character {
     if (up == true) {
       y = y-32;
       up = false;
+      monsterSpawn();
     } else if (down == true) {
       y = y+32;
       down = false;
+      monsterSpawn();
     } else if (left == true) {
       x = x-32;
       left = false;
+      monsterSpawn();
     } else if (right == true) {
       x = x+32;
       right = false;
+      monsterSpawn();
     }
     fill(1, 20, 1);
     image(p1, x, y);
-     MonsterEncounter = random(1, 100);
+  }
+ void monsterSpawn() {
+    MonsterEncounter = random(1, 100);
     if (MonsterEncounter <= 5) {
       inBattle = true;
     }
   }
-
   void keyPressed() {
     if (keyPressed==true);
   }
 }
 
-  void keyPressed() {
-    if (keyPressed==true);
-  }
-}
+ 
+
