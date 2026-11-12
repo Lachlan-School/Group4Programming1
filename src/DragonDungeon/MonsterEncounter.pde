@@ -9,7 +9,7 @@ class MonsterEncounter {
   MonsterEncounter() {
 
 
-  background = loadImage("background.png");
+    background = loadImage("background.png");
     attackButton = loadImage("attackButton.png");
     itemButton = loadImage("itemButton.png");
     runButton = loadImage("runButton.png");
@@ -63,6 +63,10 @@ class MonsterEncounter {
   }
   void attack() {
     health-=damage;
+    if (health <= 0) {
+    } else {
+      monsterTurn();
+    }
   }
   void run() {
     runValue = random(1, 100);
@@ -75,12 +79,25 @@ class MonsterEncounter {
   }
   void monsterTurn() {
   }
+  void item() {
+  }
   void mouseOver(float tempX, float tempY) {
-  if (tempX <= 224 && tempX >= 320 && tempY <= 512 && tempY >= 574) {
-    mouseOverATK = true;
-      } else if (tempX <= 384 && tempX >= 480 && tempY <= 512 && tempY >= 574) {
-    mouseOverITEM = true;
-      } else if (tempX <= 544 && tempX >= 640 && tempY <= 512 && tempY >= 574) {
-        mouseOverRUN = true;
+    if (tempX <= 224 && tempX >= 320 && tempY <= 512 && tempY >= 574) {
+      mouseOverATK = true;
+      mouseOverITEM = false;
+      mouseOverRUN = false;
+    } else if (tempX <= 384 && tempX >= 480 && tempY <= 512 && tempY >= 574) {
+      mouseOverITEM = true;
+      mouseOverATK = false;
+      mouseOverRUN = false;
+    } else if (tempX <= 544 && tempX >= 640 && tempY <= 512 && tempY >= 574) {
+      mouseOverRUN = true;
+      mouseOverITEM = false;
+      mouseOverATK = false;
+    } else {
+      mouseOverATK = false;
+      mouseOverITEM = false;
+      mouseOverRUN = false;
+    }
   }
 }
