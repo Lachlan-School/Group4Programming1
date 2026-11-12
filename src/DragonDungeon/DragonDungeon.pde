@@ -1,8 +1,9 @@
 //Gaven Leef and Lachlan Wayment
 //Set up all of the variables
-float x, y;
-int tileX, tileY, currentTile;
-boolean up, down, left, right, inBattle;
+float x, y, runValue, runChance, runBlock;
+String weaponEquipped, armorEquipped;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp;
+boolean up, down, left, right, inBattle, decideMonster;
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 MonsterEncounter Monster;
@@ -29,7 +30,6 @@ void setup() {
     tileY = int(tileY);
     tileY *= 32;
     tiles[i] = new Overworld(tileX, tileY, i);
-    
   }
 }
 
@@ -42,7 +42,7 @@ void draw() {
     tiles[i].display();
   }
   if (inBattle == false) {
-  Player.display(up, down, left, right);
+    Player.display(up, down, left, right);
   } else {
     Monster.display();
   }
