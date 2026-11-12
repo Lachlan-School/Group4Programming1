@@ -44,10 +44,10 @@ class MonsterEncounter {
     battle();
   }
   void battle() {
-    rect(128, 128, 512, 512);
-    image(attackButton, 256, 320);
-    image(itemButton, 384, 320);
-    image(runButton, 352, 416);
+    rect(128, 128, 640, 512);
+    image(attackButton, 224, 512);
+    image(itemButton, 384, 512);
+    image(runButton, 544, 512);
     
   }
 }
