@@ -6,6 +6,7 @@ int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp;
 boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN;
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
+button presser;
 MonsterEncounter Monster;
 Overworld[] tiles = new Overworld[736];
 void setup() {
@@ -15,6 +16,7 @@ void setup() {
   inBattle = false;
   //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
   Player = new Character();
+  presser = new button();
   Monster = new MonsterEncounter();
   for (int i = 0; i<tiles.length; i++) {
 
@@ -45,7 +47,8 @@ void draw() {
     Player.display(up, down, left, right);
   } else {
     Monster.display();
-    Monster.mouseOver(mouseX, mouseY);
+    presser.display();
+    presser.mouseOver(mouseX, mouseY);
   }
   up = false;
   down = false;
