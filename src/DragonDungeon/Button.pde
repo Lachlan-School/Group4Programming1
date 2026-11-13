@@ -20,14 +20,14 @@ class button {
       attackButton = loadImage("attackButton.png");
     }
     if (mouseOverITEM == true) {
-      attackButton = loadImage("ItemButtonDown.png");
+      itemButton = loadImage("ItemButtonDown.png");
     } else {
-      attackButton = loadImage("itemButton.png");
+      itemButton = loadImage("itemButton.png");
     }
     if (mouseOverRUN == true) {
-      attackButton = loadImage("RunButtonDown.png");
+      runButton = loadImage("RunButtonDown.png");
     } else {
-      attackButton = loadImage("runButton.png");
+      runButton = loadImage("runButton.png");
     }
   }
   void mouseOver(float tempX, float tempY) {
