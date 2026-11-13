@@ -1,3 +1,5 @@
+//James Jia
+
 class Shopkeeper {
   PImage shop; 
   PImage shopkeeper;
@@ -7,7 +9,7 @@ class Shopkeeper {
     shopkeeper = loadImage("shopkeeper.png");
   }
 
-  void show() {
+  void display() {
     image(shop, 137, 137, width*2/3, height*2/3);
     image(shopkeeper, 200,200, 500, 500);
   }
