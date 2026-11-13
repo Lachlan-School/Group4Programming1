@@ -4,15 +4,13 @@ class MonsterEncounter {
   String creatureType;
   int health, expValue;
   float creatureIndex;
-  PImage  creatureImage, attackButton, itemButton, runButton, background;
+  PImage  creatureImage,  background;
 
   MonsterEncounter() {
 
 
     background = loadImage("background.png");
-    attackButton = loadImage("attackButton.png");
-    itemButton = loadImage("itemButton.png");
-    runButton = loadImage("runButton.png");
+   
   }
 
   void display() {
@@ -56,10 +54,8 @@ class MonsterEncounter {
     image(creatureImage, 384, 320);
   }
   void battle() {
-    image(background, 128, 128, width/2, height/2);
-    image(attackButton, 224, 512);
-    image(itemButton, 384, 512);
-    image(runButton, 544, 512);
+    image(background, 128, 128);
+
   }
   void attack() {
     health-=damage;
@@ -81,23 +77,5 @@ class MonsterEncounter {
   }
   void item() {
   }
-  void mouseOver(float tempX, float tempY) {
-    if (tempX <= 224 && tempX >= 320 && tempY <= 512 && tempY >= 574) {
-      mouseOverATK = true;
-      mouseOverITEM = false;
-      mouseOverRUN = false;
-    } else if (tempX <= 384 && tempX >= 480 && tempY <= 512 && tempY >= 574) {
-      mouseOverITEM = true;
-      mouseOverATK = false;
-      mouseOverRUN = false;
-    } else if (tempX <= 544 && tempX >= 640 && tempY <= 512 && tempY >= 574) {
-      mouseOverRUN = true;
-      mouseOverITEM = false;
-      mouseOverATK = false;
-    } else {
-      mouseOverATK = false;
-      mouseOverITEM = false;
-      mouseOverRUN = false;
-    }
-  }
+  
 }
