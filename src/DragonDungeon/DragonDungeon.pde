@@ -1,9 +1,10 @@
 //Gaven Leef and Lachlan Wayment
-//Set up all of the variables
+//Set up all of the variables that we will use on this tab and across tabs
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
-int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp, tileCheck;
 boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN;
+PImage attackButton, itemButton, runButton;
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 button presser;
@@ -19,9 +20,7 @@ void setup() {
   presser = new button();
   Monster = new MonsterEncounter();
   for (int i = 0; i<tiles.length; i++) {
-
     tileX = i;
-
     for (int j = 0; j< tileX; j++) {
       if (tileX >=32) {
         tileX = tileX-32;
@@ -31,15 +30,19 @@ void setup() {
     tileY = i/32;
     tileY = int(tileY);
     tileY *= 32;
-    tiles[i] = new Overworld(tileX, tileY, i);
+    tileCheck = i-tileY;
+    if (tileCheck == 25) {
+      tiles[i] = new Overworld(tileX, tileY, i, 16);
+    } else if (tileCheck == 26) {
+      tiles[i] = new Overworld(tileX, tileY, i, 12);
+    } else {
+      tiles[i] = new Overworld(tileX, tileY, i, 0);
+    }
   }
 }
-
-
-
-
 void draw() {
   background(#34CE3D);
+  presser.buttonChange();
   for (int i = 0; i<tiles.length; i++) {
     tiles[i].display();
   }
@@ -55,18 +58,15 @@ void draw() {
   left = false;
   right = false;
 }
-
-
 void mouseReleased() {
-if (mouseOverATK == true) {
-  Monster.attack();
-} else if (mouseOverITEM == true) {
-  Monster.item();
-} else if (mouseOverRUN == true) {
-  Monster.run();
+  if (mouseOverATK == true) {
+    Monster.attack();
+  } else if (mouseOverITEM == true) {
+    Monster.item();
+  } else if (mouseOverRUN == true) {
+    Monster.run();
+  }
 }
-}
-
 void keyPressed() {
   if (key == 'w' || key == 'W') up = true;
   if (key == 's' || key == 'S') down = true;
