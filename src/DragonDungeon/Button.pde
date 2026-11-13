@@ -1,19 +1,36 @@
 //Lachlan Wayment, James Jia
 
 class button {
-  PImage attackButton, itemButton, runButton;
 
-button() {
- attackButton = loadImage("attackButton.png");
+  button() {
+    attackButton = loadImage("attackButton.png");
     itemButton = loadImage("itemButton.png");
     runButton = loadImage("runButton.png");
-}
-void display() {
+  }
+  void display() {
+    
     image(attackButton, 224, 512);
     image(itemButton, 384, 512);
     image(runButton, 544, 512);
-}
-void mouseOver(float tempX, float tempY) {
+  }
+  void buttonChange (){
+  if (mouseOverATK == true) {
+      attackButton = loadImage("AttackButtonDown.png");
+    } else {
+      attackButton = loadImage("attackButton.png");
+    }
+    if (mouseOverITEM == true) {
+      attackButton = loadImage("ItemButtonDown.png");
+    } else {
+      attackButton = loadImage("itemButton.png");
+    }
+    if (mouseOverRUN == true) {
+      attackButton = loadImage("RunButtonDown.png");
+    } else {
+      attackButton = loadImage("runButton.png");
+    }
+  }
+  void mouseOver(float tempX, float tempY) {
     if (tempX <= 224 && tempX >= 320 && tempY <= 512 && tempY >= 574) {
       mouseOverATK = true;
       mouseOverITEM = false;
@@ -33,4 +50,3 @@ void mouseOver(float tempX, float tempY) {
     }
   }
 }
-
