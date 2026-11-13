@@ -9,6 +9,7 @@ PImage attackButton, itemButton, runButton;
 Character Player;
 button presser;
 MonsterEncounter Monster;
+Shopkeeper shopkeeper;
 Overworld[] tiles = new Overworld[736];
 void setup() {
   //Set up the window size, background and other universal variables
@@ -19,6 +20,7 @@ void setup() {
   Player = new Character();
   presser = new button();
   Monster = new MonsterEncounter();
+  shopkeeper = new Shopkeeper();
   for (int i = 0; i<tiles.length; i++) {
     tileX = i;
     for (int j = 0; j< tileX; j++) {
