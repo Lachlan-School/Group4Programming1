@@ -54,7 +54,7 @@ class MonsterEncounter {
     image(creatureImage, 384, 320);
   }
   void battle() {
-    image(background, 137, 137, width*2/3, height*2/3);
+    image(background, 128, 128);
 
   }
   void attack() {
@@ -64,7 +64,9 @@ class MonsterEncounter {
       monsterTurn();
     }
   }
-  void run() {
+   void item() {
+  }
+ void run() {
     runValue = random(1, 100);
     runChance = 50+agi-runBlock;
     if (runValue < runChance) {
@@ -74,8 +76,8 @@ class MonsterEncounter {
     }
   }
   void monsterTurn() {
+    
   }
-  void item() {
-  }
+  
   
 }
