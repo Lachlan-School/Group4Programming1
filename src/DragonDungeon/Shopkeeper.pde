@@ -11,6 +11,6 @@ class Shopkeeper {
 
   void display() {
     image(shop, 137, 137, width*2/3, height*2/3);
-    image(shopkeeper, 200,200, 500, 500);
+    image(shopkeeper, 350,173, 200, 200);
   }
 }
