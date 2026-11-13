@@ -2,7 +2,7 @@
 
 class MonsterEncounter {
   String creatureType;
-  int health, expValue;
+  int health, expValue, goldValue;
   float creatureIndex;
   PImage  creatureImage,  background;
 
@@ -21,17 +21,20 @@ class MonsterEncounter {
         health = 200;
         expValue = 200;
         runBlock =  50;
+        goldValue = 50;
         decideMonster = false;
       } else if (creatureIndex <= 18) {
         creatureType = "DemonicSprite";
         health = 150;
         expValue = 150;
         runBlock =  40;
+        goldValue = 30;
         decideMonster = false;
       } else if (creatureIndex <= 45.8) {
         creatureType = "Gryphon";
         health = 125;
         expValue = 150;
+        goldValue = 10;
         decideMonster = false;
         runBlock =  30;
       } else if (creatureIndex <= 73.9) {
@@ -39,12 +42,14 @@ class MonsterEncounter {
         health = 50;
         expValue = 50;
         runBlock =  20;
+        goldValue = 5;
         decideMonster = false;
       } else {
         creatureType = "BlueSlime";
         health = 25;
         expValue = 25;
         runBlock =  10;
+        goldValue = 2;
         decideMonster = false;
       }
     }
@@ -54,7 +59,7 @@ class MonsterEncounter {
     image(creatureImage, 384, 320);
   }
   void battle() {
-    image(background, 128, 128);
+    image(background, 352, 320);
 
   }
   void attack() {
