@@ -1,21 +1,23 @@
-//Gaven Leef and Lachlan Wayment
-//Set up all of the variables that we will use on this tab and across tabs
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
 int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp, tileCheck;
-boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN;
+boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
 PImage attackButton, itemButton, runButton;
+
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 button presser;
 MonsterEncounter Monster;
 Shopkeeper shopkeeper;
 Overworld[] tiles = new Overworld[736];
+
 void setup() {
   //Set up the window size, background and other universal variables
   size(1024, 736);
   background(#34CE3D);
   inBattle = false;
+  showShop = false;
+  
   //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
   Player = new Character();
   presser = new button();
@@ -42,6 +44,7 @@ void setup() {
     }
   }
 }
+
 void draw() {
   background(#34CE3D);
   presser.buttonChange();
@@ -49,7 +52,12 @@ void draw() {
     tiles[i].display();
   }
   if (inBattle == false) {
-    Player.display(up, down, left, right);
+    if (showShop == false) {
+      Player.display(up, down, left, right);
+    } else {
+      Player.display(false, false, false, false); // Freezes movement while shop is open
+      shopkeeper.show();
+    }
   } else {
     Monster.display();
     presser.display();
@@ -60,6 +68,7 @@ void draw() {
   left = false;
   right = false;
 }
+
 void mouseReleased() {
   if (mouseOverATK == true) {
     Monster.attack();
@@ -69,9 +78,13 @@ void mouseReleased() {
     Monster.run();
   }
 }
+
 void keyPressed() {
   if (key == 'w' || key == 'W') up = true;
   if (key == 's' || key == 'S') down = true;
   if (key == 'a' || key == 'A') left = true;
   if (key == 'd' || key == 'D') right = true;
+  if ((key == 'q' || key == 'Q') && inBattle == false) {
+    showShop = !showShop;
+  }
 }
