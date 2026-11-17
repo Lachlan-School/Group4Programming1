@@ -56,7 +56,7 @@ void draw() {
       Player.display(up, down, left, right);
     } else {
       Player.display(false, false, false, false); // Freezes movement while shop is open
-      shopkeeper.show();
+      shopkeeper.display();
     }
   } else {
     Monster.display();
