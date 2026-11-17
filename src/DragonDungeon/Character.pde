@@ -13,7 +13,7 @@ class Character {
   //Constructor
   Character() {
     x=512;
-    y=368;
+    y=352;
     hp = 100;
     hpMax = 100;
     str = 5;
@@ -53,6 +53,7 @@ class Character {
       tileOn();
     }
     fill(1, 20, 1);
+    imageMode(CORNER);
     image(p1, x, y);
   }
   void monsterSpawn() {
@@ -62,9 +63,6 @@ class Character {
       decideMonster = true;
     }
   }
-  void keyPressed() {
-    if (keyPressed==true);
-  }
   void tileOn() {
     tempIntX = 0;
     tempIntY = 0;
@@ -72,15 +70,14 @@ class Character {
     tempIntY = y/32;
     tempIntY = tempIntY*32;
     if (tempIntY==0) {
-      
     } else {
-    tempIntY = tempIntY+32;}
-    onTile = tempIntY +tempIntX;
+      tempIntY = tempIntY+32;
+    }
+     onTile = tempIntY + tempIntX;
     rightTile = onTile + 1;
     leftTile = onTile - 1;
     downTile = onTile + 32;
     upTile = onTile -32;
-    print(" onTile: " + onTile);
+    print(" onTile: " + y);
   }
 }
-
