@@ -12,8 +12,8 @@ class Shopkeeper {
   }
 
   void display() {
-    image(shop, 137, 137, width*2/3, height*2/3);
-    image(shopkeeper, 350,173, 200, 200);
+    image(shop, 137, 137, width*1/2, height*1/2);
+    image(shopkeeper, 350,213, 100, 100);
     if (showBubble) {
       drawBubble();
     }
