@@ -56,8 +56,7 @@ class MonsterEncounter {
     battle();
 
     creatureImage = loadImage(creatureType + ".png");
-    image(creatureImage, 384, 320);
-  }
+    image(creatureImage, 464, 352);  }
   void battle() {
     image(background, 137, 137, width*2/3, height*2/3);
 
