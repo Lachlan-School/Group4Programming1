@@ -1,6 +1,6 @@
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
-int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp, tileCheck;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp, tileCheck, onTile, rightTile, leftTile, upTile, downTile;
 boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
 PImage attackButton, itemButton, runButton;
 
