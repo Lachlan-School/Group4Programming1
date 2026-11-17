@@ -1,90 +1,83 @@
-float x, y, runValue, runChance, runBlock;
-String weaponEquipped, armorEquipped;
-int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, level, exp, tileCheck, onTile, rightTile, leftTile, upTile, downTile;
-boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
-PImage attackButton, itemButton, runButton;
+//Gaven Leef
 
-//Call the classes, including Overworld as an array to spawn all 736 tiles.
-Character Player;
-button presser;
-MonsterEncounter Monster;
-Shopkeeper shopkeeper;
-Overworld[] tiles = new Overworld[736];
+int currentXP = 20;
+int nextLevelXP = 100;
+int currentLevel = 1;
 
-void setup() {
-  //Set up the window size, background and other universal variables
-  size(1024, 736);
-  background(#34CE3D);
-  inBattle = false;
-  showShop = false;
-  
-  //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
-  Player = new Character();
-  presser = new button();
-  Monster = new MonsterEncounter();
-  shopkeeper = new Shopkeeper();
-  for (int i = 0; i<tiles.length; i++) {
-    tileX = i;
-    for (int j = 0; j< tileX; j++) {
-      if (tileX >=32) {
-        tileX = tileX-32;
-      }
+class Character {
+  //Member Variables
+  float MonsterEncounter;
+  int x, y, tempIntX, tempIntY;
+  PImage p1;
+
+  //Constructor
+  Character() {
+    x=512;
+    y=352;
+    hp = 100;
+    hpMax = 100;
+    str = 5;
+    agi = 5;
+    level = 1;
+    exp = 0;
+    damage = 5;
+    defense = 0;
+    tempIntX = 0;
+    tempIntY = 0;
+    weaponEquipped = "rustedDagger";
+    armorEquipped = "none";
+
+    p1=loadImage("CharacterS01.png");
+  }
+  //Member Method
+  void display(boolean up, boolean down, boolean left, boolean right) {
+    if (up == true) {
+      y = y-32;
+      up = false;
+      monsterSpawn();
+      tileOn();
+    } else if (down == true) {
+      y = y+32;
+      down = false;
+      monsterSpawn();
+      tileOn();
+    } else if (left == true) {
+      x = x-32;
+      left = false;
+      monsterSpawn();
+      tileOn();
+    } else if (right == true) {
+      x = x+32;
+      right = false;
+      monsterSpawn();
+      tileOn();
     }
-    tileX *= 32;
-    tileY = i/32;
-    tileY = int(tileY);
-    tileY *= 32;
-    tileCheck = i-tileY;
-    if (tileCheck == 25) {
-      tiles[i] = new Overworld(tileX, tileY, i, 16);
-    } else if (tileCheck == 26) {
-      tiles[i] = new Overworld(tileX, tileY, i, 12);
+    fill(1, 20, 1);
+    imageMode(CORNER);
+    image(p1, x, y);
+  }
+  void monsterSpawn() {
+    MonsterEncounter = random(1, 100);
+    if (MonsterEncounter <= 5) {
+      inBattle = true;
+      decideMonster = true;
+    }
+  }
+  void tileOn() {
+    tempIntX = 0;
+    tempIntY = 0;
+    tempIntX = x/32;
+    tempIntY = y/32;
+    tempIntY = tempIntY*32;
+    if (tempIntY==0) {
     } else {
-      tiles[i] = new Overworld(tileX, tileY, i, 0);
+      tempIntY = tempIntY+32;
     }
-  }
-}
-
-void draw() {
-  background(#34CE3D);
-  presser.buttonChange();
-  for (int i = 0; i<tiles.length; i++) {
-    tiles[i].display();
-  }
-  if (inBattle == false) {
-    if (showShop == false) {
-      Player.display(up, down, left, right);
-    } else {
-      Player.display(false, false, false, false); // Freezes movement while shop is open
-      shopkeeper.display();
-    }
-  } else {
-    Monster.display();
-    presser.display();
-    presser.mouseOver(mouseX, mouseY);
-  }
-  up = false;
-  down = false;
-  left = false;
-  right = false;
-}
-
-void mouseReleased() {
-  if (mouseOverATK == true) {
-    Monster.attack();
-  } else if (mouseOverITEM == true) {
-    Monster.item();
-  } else if (mouseOverRUN == true) {
-    Monster.run();
-  }
-}
-
-void keyPressed() {
-  if (key == 'w' || key == 'W') up = true;
-  if (key == 's' || key == 'S') down = true;
-  if (key == 'a' || key == 'A') left = true;
-  if (key == 'd' || key == 'D') right = true;
-  if ((key == 'q' || key == 'Q') && inBattle == false) {
-    showShop = !showShop;
+     onTile = tempIntY + tempIntX;
+    rightTile = onTile + 1;
+    leftTile = onTile - 1;
+    downTile = onTile + 32;
+    upTile = onTile -32;
+    print(" onTile: " + y);
   }
 }
