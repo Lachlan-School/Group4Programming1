@@ -1,8 +1,8 @@
 //Gaven Leef
 
-int currentXP = 20;
-int nextLevelXP = 100;
-int currentLevel = 1;
+//int currentXP = 0;
+//int nextLevelXP = 100;
+//int currentLevel = 1;
 
 class Character {
   //Member Variables
@@ -18,8 +18,6 @@ class Character {
     hpMax = 100;
     str = 5;
     agi = 5;
-    level = 1;
-    exp = 0;
     damage = 5;
     defense = 0;
     tempIntX = 0;
@@ -73,7 +71,7 @@ class Character {
     } else {
       tempIntY = tempIntY+32;
     }
-     onTile = tempIntY + tempIntX;
+    onTile = tempIntY + tempIntX;
     rightTile = onTile + 1;
     leftTile = onTile - 1;
     downTile = onTile + 32;
