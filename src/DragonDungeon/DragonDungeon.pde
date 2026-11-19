@@ -72,6 +72,7 @@ void draw() {
 }
 
 void mouseReleased() {
+  shopkeeper.checkClick();
   if (mouseOverATK == true) {
     Monster.attack();
   } else if (mouseOverITEM == true) {
