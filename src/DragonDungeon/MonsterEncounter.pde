@@ -4,13 +4,12 @@ class MonsterEncounter {
   String creatureType;
   int health, expValue, goldValue;
   float creatureIndex;
-  PImage  creatureImage,  background;
+  PImage  creatureImage, background;
 
   MonsterEncounter() {
 
 
     background = loadImage("background.png");
-   
   }
 
   void display() {
@@ -56,21 +55,24 @@ class MonsterEncounter {
     battle();
 
     creatureImage = loadImage(creatureType + ".png");
-    image(creatureImage, 464, 352);  }
+    image(creatureImage, 464, 352);
+  }
   void battle() {
     image(background, 137, 137, width*2/3, height*2/3);
-
   }
   void attack() {
     health-=damage;
     if (health <= 0) {
+      inBattle = false;
+      currentXP += expValue;
+      goldCount += goldValue;
     } else {
       monsterTurn();
     }
   }
-   void item() {
+  void item() {
   }
- void run() {
+  void run() {
     runValue = random(1, 100);
     runChance = 50+agi-runBlock;
     if (runValue < runChance) {
@@ -80,8 +82,5 @@ class MonsterEncounter {
     }
   }
   void monsterTurn() {
-    
   }
-  
-  
 }
