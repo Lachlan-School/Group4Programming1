@@ -5,6 +5,9 @@ class Shopkeeper {
   PImage weapon;
   PImage armor;
   PImage potion;
+  PImage buyButton;
+  boolean showBuyButton = false;
+  String selectedItem = "";
 
 
   Shopkeeper() {
@@ -13,6 +16,7 @@ class Shopkeeper {
     weapon = loadImage("weapon.png");
     armor = loadImage("armor.png");
     potion = loadImage("potion.png");
+    buyButton = loadImage("buyButton.png");
   }
 
   void display() {
@@ -24,6 +28,10 @@ class Shopkeeper {
 
 
     drawBubble();
+    
+    if (showBuyButton) {
+      image(buyButton, width*1/3, 400, 120, 50);
+    }
   }
   void drawBubble() {
     fill(255);
@@ -34,5 +42,25 @@ class Shopkeeper {
     textSize(16);
     textAlign(LEFT, TOP);
     text("Buy weapon, armor or potion.", 580, 175, 150, 65);
+  }
+  
+  void checkClick() {
+    if (mouseX >= 350 && mouseX <= 350 + 60 && mouseY >= 140 && mouseY <= 140 + 60) {
+      toggleItem("potion");
+    } else if (mouseX >= 450 && mouseX <= 450 + 120 && mouseY >= 180 && mouseY <= 180 + 120) {
+      toggleItem("armor");
+    } else if (mouseX >= 400 && mouseX <= 400 + 150 && mouseY >= 138 && mouseY <= 138 + 100) {
+      toggleItem("weapon");
+    }
+  }
+
+  void toggleItem(String item) {
+    if (selectedItem.equals(item) && showBuyButton) {
+      showBuyButton = false;
+      selectedItem = "";
+    } else {
+      selectedItem = item;
+      showBuyButton = true;
+    }
   }
 }
