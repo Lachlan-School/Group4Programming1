@@ -1,89 +1,92 @@
-// Lachlan Wayment
+float x, y, runValue, runChance, runBlock;
+String weaponEquipped, armorEquipped;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, tileCheck, onTile, rightTile, leftTile, upTile, downTile, potionCount, goldCount;
+boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
+PImage attackButton, itemButton, runButton;
+int currentXP = 0;
+int nextLevelXP = 100;
+int currentLevel = 1;
+//Call the classes, including Overworld as an array to spawn all 736 tiles.
+Character Player;
+button presser;
+MonsterEncounter Monster;
+Shopkeeper shopkeeper;
+Overworld[] tiles = new Overworld[736];
 
-class MonsterEncounter {
-  String creatureType;
-  int health, expValue, goldValue;
-  float creatureIndex;
-  PImage  creatureImage, background;
+void setup() {
+  //Set up the window size, background and other universal variables
+  size(1024, 736);
+  background(#34CE3D);
+  inBattle = false;
+  showShop = false;
 
-  MonsterEncounter() {
-
-
-    background = loadImage("background.png");
-  }
-
-  void display() {
-    if (decideMonster == true) {
-      creatureIndex = random(1, 100);
-      if (creatureIndex <= 4) {
-        creatureType = "MysteriousFae";
-        health = 200;
-        expValue = 200;
-        runBlock =  50;
-        goldValue = 50;
-        decideMonster = false;
-      } else if (creatureIndex <= 18) {
-        creatureType = "DemonicSprite";
-        health = 150;
-        expValue = 150;
-        runBlock =  40;
-        goldValue = 30;
-        decideMonster = false;
-      } else if (creatureIndex <= 45.8) {
-        creatureType = "Gryphon";
-        health = 125;
-        expValue = 150;
-        goldValue = 10;
-        decideMonster = false;
-        runBlock =  30;
-      } else if (creatureIndex <= 73.9) {
-        creatureType = "RedSlime";
-        health = 50;
-        expValue = 50;
-        runBlock =  20;
-        goldValue = 5;
-        decideMonster = false;
-      } else {
-        creatureType = "BlueSlime";
-        health = 25;
-        expValue = 25;
-        runBlock =  10;
-        goldValue = 2;
-        decideMonster = false;
+  //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
+  Player = new Character();
+  presser = new button();
+  Monster = new MonsterEncounter();
+  shopkeeper = new Shopkeeper();
+  for (int i = 0; i<tiles.length; i++) {
+    tileX = i;
+    for (int j = 0; j< tileX; j++) {
+      if (tileX >=32) {
+        tileX = tileX-32;
       }
     }
-    battle();
+    tileX *= 32;
+    tileY = i/32;
+    tileY = int(tileY);
+    tileY *= 32;
+    tileCheck = i-tileY;
+    if (tileCheck == 25) {
+      tiles[i] = new Overworld(tileX, tileY, i, 16);
+    } else if (tileCheck == 26) {
+      tiles[i] = new Overworld(tileX, tileY, i, 12);
+    } else {
+      tiles[i] = new Overworld(tileX, tileY, i, 0);
+    }
+  }
+}
 
-    creatureImage = loadImage(creatureType + ".png");
-    image(creatureImage, 464, 352);
+void draw() {
+  background(#34CE3D);
+  presser.buttonChange();
+  for (int i = 0; i<tiles.length; i++) {
+    tiles[i].display();
   }
-  void battle() {
-    image(background, 137, 137, width*2/3, height*2/3);
-  }
-  void attack() {
-    health-=damage;
-    if (health <= 0) {
-      inBattle = false;
-      currentXP += expValue;
-      goldCount += goldValue;
+  if (inBattle == false) {
+    if (showShop == false) {
+      Player.display(up, down, left, right);
     } else {
-      monsterTurn();
+      Player.display(false, false, false, false); // Freezes movement while shop is open
+      shopkeeper.display();
     }
+  } else {
+    Monster.display();
+    presser.display();
+    presser.mouseOver(mouseX, mouseY);
   }
-  void item() {
+  up = false;
+  down = false;
+  left = false;
+  right = false;
+}
+
+void mouseReleased() {
+  if (mouseOverATK == true) {
+    Monster.attack();
+  } else if (mouseOverITEM == true) {
+    Monster.item();
+  } else if (mouseOverRUN == true) {
+    Monster.run();
   }
-  void run() {
-    runValue = random(1, 100);
-    runChance = 50+agi-runBlock;
-    if (runValue < runChance) {
-      inBattle = false;
-    } else {
-      monsterTurn();
-    }
-  }
-  void monsterTurn() {
-  }
-  void mouseReleased() {
-    shopkeeper.checkClick();
+}
+
+void keyPressed() {
+  if (key == 'w' || key == 'W') up = true;
+  if (key == 's' || key == 'S') down = true;
+  if (key == 'a' || key == 'A') left = true;
+  if (key == 'd' || key == 'D') right = true;
+  if ((key == 'q' || key == 'Q') && inBattle == false) {
+    showShop = !showShop;
   }
 }
