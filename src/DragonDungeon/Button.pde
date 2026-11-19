@@ -8,13 +8,13 @@ class button {
     runButton = loadImage("runButton.png");
   }
   void display() {
-    
+
     image(attackButton, 224, 512);
     image(itemButton, 384, 512);
     image(runButton, 544, 512);
   }
-  void buttonChange (){
-  if (mouseOverATK == true) {
+  void buttonChange () {
+    if (mouseOverATK == true) {
       attackButton = loadImage("AttackButtonDown.png");
     } else {
       attackButton = loadImage("attackButton.png");
@@ -31,15 +31,15 @@ class button {
     }
   }
   void mouseOver(float tempX, float tempY) {
-    if (tempX <= 224 && tempX >= 320 && tempY <= 512 && tempY >= 574) {
+    if (tempX >= 224 && tempX <= 352 && tempY >= 512 && tempY <= 576) {
       mouseOverATK = true;
       mouseOverITEM = false;
       mouseOverRUN = false;
-    } else if (tempX <= 384 && tempX >= 480 && tempY <= 512 && tempY >= 574) {
+    } else if (tempX >= 384 && tempX <= 512 && tempY >= 512 && tempY <= 576) {
       mouseOverITEM = true;
       mouseOverATK = false;
       mouseOverRUN = false;
-    } else if (tempX <= 544 && tempX >= 640 && tempY <= 512 && tempY >= 574) {
+    } else if (tempX >= 544 && tempX <= 672 && tempY >= 512 && tempY <= 576) {
       mouseOverRUN = true;
       mouseOverITEM = false;
       mouseOverATK = false;
