@@ -66,6 +66,10 @@ class MonsterEncounter {
       inBattle = false;
       currentXP += expValue;
       goldCount += goldValue;
+      fill(255);
+      rect(320,416,640,64);
+      text("You defeated a "+creatureType + "! You gain "+goldValue+ " gold! You gain "+expValue + "EXP!", 320, 416);
+      delay(1000);
     } else {
       monsterTurn();
     }
