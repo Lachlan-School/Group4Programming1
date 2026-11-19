@@ -83,4 +83,7 @@ class MonsterEncounter {
   }
   void monsterTurn() {
   }
+  void mouseReleased() {
+    shopkeeper.checkClick();
+  }
 }
