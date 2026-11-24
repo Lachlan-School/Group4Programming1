@@ -1,11 +1,12 @@
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
-int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, tileCheck, onTile, rightTile, leftTile, upTile, downTile, potionCount, goldCount;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, tileCheck, onTile, rightTile, leftTile, upTile, downTile, potionCount, goldCount, holdRandom;
 boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
 PImage attackButton, itemButton, runButton;
 int currentXP = 0;
 int nextLevelXP = 100;
 int currentLevel = 1;
+int[] tileBiome= new int[736];
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 button presser;
@@ -37,12 +38,20 @@ void setup() {
     tileY = int(tileY);
     tileY *= 32;
     tileCheck = i-tileY;
-    if (tileCheck == 25) {
+    if (tileCheck == 0 || tileCheck == 31 || tileY == 0 || tileY == 704) {
+      //holdRandom = 1;
+      //int(random(1, 2.99999999999));
+      tiles[i] = new Overworld(tileX, tileY, i, 7);
+      tileBiome[i] = 7;
+    } else if (tileCheck == 25) {
       tiles[i] = new Overworld(tileX, tileY, i, 16);
+      tileBiome[i] = 16;
     } else if (tileCheck == 26) {
       tiles[i] = new Overworld(tileX, tileY, i, 12);
+      tileBiome[i] = 12;
     } else {
       tiles[i] = new Overworld(tileX, tileY, i, 0);
+      tileBiome[i] = 0;
     }
   }
 }
@@ -50,6 +59,7 @@ void setup() {
 void draw() {
   background(#34CE3D);
   presser.buttonChange();
+
   for (int i = 0; i<tiles.length; i++) {
     tiles[i].display();
   }
@@ -72,7 +82,6 @@ void draw() {
 }
 
 void mouseReleased() {
-  shopkeeper.checkClick();
   if (mouseOverATK == true) {
     Monster.attack();
   } else if (mouseOverITEM == true) {
