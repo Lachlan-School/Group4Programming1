@@ -1,10 +1,11 @@
 // Lachlan Wayment
 
 class MonsterEncounter {
-  String creatureType;
+  String creatureType, textBox;
   int health, expValue, goldValue;
   float creatureIndex;
   PImage  creatureImage, background;
+  
 
   MonsterEncounter() {
 
@@ -21,6 +22,7 @@ class MonsterEncounter {
         expValue = 200;
         runBlock =  50;
         goldValue = 50;
+        textBox = "You encountered a " + creatureType + "!";
         decideMonster = false;
       } else if (creatureIndex <= 18) {
         creatureType = "DemonicSprite";
@@ -28,12 +30,14 @@ class MonsterEncounter {
         expValue = 150;
         runBlock =  40;
         goldValue = 30;
+        textBox = "You encountered a " + creatureType + "!";
         decideMonster = false;
       } else if (creatureIndex <= 45.8) {
         creatureType = "Gryphon";
         health = 125;
         expValue = 150;
         goldValue = 10;
+        textBox = "You encountered a " + creatureType + "!";
         decideMonster = false;
         runBlock =  30;
       } else if (creatureIndex <= 73.9) {
@@ -42,6 +46,7 @@ class MonsterEncounter {
         expValue = 50;
         runBlock =  20;
         goldValue = 5;
+        textBox = "You encountered a " + creatureType + "!";
         decideMonster = false;
       } else {
         creatureType = "BlueSlime";
@@ -49,6 +54,7 @@ class MonsterEncounter {
         expValue = 25;
         runBlock =  10;
         goldValue = 2;
+        textBox = "You encountered a " + creatureType + "!";
         decideMonster = false;
       }
     }
@@ -59,17 +65,25 @@ class MonsterEncounter {
   }
   void battle() {
     image(background, 137, 137, width*2/3, height*2/3);
+    fill(255);
+    strokeWeight(5);
+    rect(139, 416, 676, 64);
+    textSize(25);
+    strokeWeight(20);
+    fill(0);    
+    text(textBox, 152, 464);
   }
   void attack() {
-    health-=damage;
+    damageModifier = int(random(1,2.9999999));
+    health-=damage + damageModifier;
+    damageDealt = damage + damageModifier;
+    textBox = "You dealt " + damage + " damage to the " +creatureType + "!";
     if (health <= 0) {
-      inBattle = false;
       currentXP += expValue;
       goldCount += goldValue;
       fill(255);
-      rect(320,416,640,64);
-      text("You defeated a "+creatureType + "! You gain "+goldValue+ " gold! You gain "+expValue + "EXP!", 320, 416);
-      delay(1000);
+      textBox = "You defeated a "+creatureType + "! You gain "+goldValue+ " gold! You gain "+expValue + " EXP!";
+      doDelay = true;
     } else {
       monsterTurn();
     }
