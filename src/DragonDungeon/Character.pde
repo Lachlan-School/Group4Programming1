@@ -20,8 +20,14 @@ class Character {
     agi = 5;
     damage = 5;
     defense = 0;
-    tempIntX = 0;
-    tempIntY = 0;
+    tempIntX = x/32;
+    tempIntY = y/32;
+    tempIntY = tempIntY*32;
+    onTile = tempIntY + tempIntX;
+    rightTile = onTile + 1;
+    leftTile = onTile - 1;
+    downTile = onTile + 32;
+    upTile = onTile -32;
     weaponEquipped = "rustedDagger";
     armorEquipped = "none";
 
@@ -30,25 +36,41 @@ class Character {
   //Member Method
   void display(boolean up, boolean down, boolean left, boolean right) {
     if (up == true) {
-      y = y-32;
-      up = false;
-      monsterSpawn();
-      tileOn();
+      if (tileBiome[upTile] >= 6 && tileBiome[upTile] <= 17) {
+        print("movement failed");
+      } else {
+        y = y-32;
+        up = false;
+        monsterSpawn();
+        tileOn();
+      }
     } else if (down == true) {
-      y = y+32;
-      down = false;
-      monsterSpawn();
-      tileOn();
+      if (tileBiome[downTile] >= 6 && tileBiome[downTile] <= 17) {
+        print("movement failed");
+      } else {
+        y = y+32;
+        down = false;
+        monsterSpawn();
+        tileOn();
+      }
     } else if (left == true) {
-      x = x-32;
-      left = false;
-      monsterSpawn();
-      tileOn();
+      if (tileBiome[leftTile] >= 6 && tileBiome[leftTile] <= 17) {
+        print("movement failed");
+      } else {
+        x = x-32;
+        left = false;
+        monsterSpawn();
+        tileOn();
+      }
     } else if (right == true) {
-      x = x+32;
-      right = false;
-      monsterSpawn();
-      tileOn();
+      if (tileBiome[rightTile] >= 6 && tileBiome[rightTile] <= 17) {
+        print("movement failed");
+      } else {
+        x = x+32;
+        right = false;
+        monsterSpawn();
+        tileOn();
+      }
     }
     fill(1, 20, 1);
     imageMode(CORNER);
@@ -62,20 +84,18 @@ class Character {
     }
   }
   void tileOn() {
-    tempIntX = 0;
-    tempIntY = 0;
     tempIntX = x/32;
     tempIntY = y/32;
     tempIntY = tempIntY*32;
-    if (tempIntY==0) {
-    } else {
-      tempIntY = tempIntY+32;
-    }
     onTile = tempIntY + tempIntX;
     rightTile = onTile + 1;
     leftTile = onTile - 1;
     downTile = onTile + 32;
     upTile = onTile -32;
-    print(" onTile: " + y);
+    print(" onTile: " + onTile);
+    print(" upTile: " + upTile);
+    print(" downTile: " + downTile);
+    print(" leftTile: " + leftTile);
+    print(" rightTile: " + rightTile);
   }
 }
