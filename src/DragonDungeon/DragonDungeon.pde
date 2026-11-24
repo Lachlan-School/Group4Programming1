@@ -1,16 +1,17 @@
 float x, y, runValue, runChance, runBlock;
 String weaponEquipped, armorEquipped;
-int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, tileCheck, onTile, rightTile, leftTile, upTile, downTile, potionCount, goldCount, holdRandom;
+int tileX, tileY, currentTile, str, agi, hp, hpMax, damage, defense, tileCheck, onTile, rightTile, leftTile, upTile, downTile, potionCount, goldCount, holdRandom, damageModifier, damageDealt;
 boolean up, down, left, right, inBattle, decideMonster, mouseOverATK, mouseOverITEM, mouseOverRUN, showShop;
 PImage attackButton, itemButton, runButton;
 int currentXP = 0;
 int nextLevelXP = 100;
 int currentLevel = 1;
+boolean doDelay = false;
 int[] tileBiome= new int[736];
 //Call the classes, including Overworld as an array to spawn all 736 tiles.
 Character Player;
 button presser;
-MonsterEncounter Monster;
+MonsterEncounter monster;
 Shopkeeper shopkeeper;
 Overworld[] tiles = new Overworld[736];
 
@@ -24,7 +25,7 @@ void setup() {
   //Setup the classes from other tabs, with a for loop to make all 736 of the tiles.
   Player = new Character();
   presser = new button();
-  Monster = new MonsterEncounter();
+  monster = new MonsterEncounter();
   shopkeeper = new Shopkeeper();
   for (int i = 0; i<tiles.length; i++) {
     tileX = i;
@@ -67,27 +68,32 @@ void draw() {
     if (showShop == false) {
       Player.display(up, down, left, right);
     } else {
-      Player.display(false, false, false, false); // Freezes movement while shop is open
+      // Freeze movement while shop is open
+      Player.display(false, false, false, false);
       shopkeeper.display();
     }
   } else {
-    Monster.display();
+    monster.display();
     presser.display();
     presser.mouseOver(mouseX, mouseY);
   }
+
   up = false;
   down = false;
   left = false;
   right = false;
+  if (doDelay == true) {
+    delay(1000);
+  }
 }
 
 void mouseReleased() {
   if (mouseOverATK == true) {
-    Monster.attack();
+    monster.attack();
   } else if (mouseOverITEM == true) {
-    Monster.item();
+    monster.item();
   } else if (mouseOverRUN == true) {
-    Monster.run();
+    monster.run();
   }
 }
 
